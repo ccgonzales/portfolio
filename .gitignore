@@ -60,6 +60,7 @@ public
 
 # Mac files
 .DS_Store
+*.code-workspace
 
 # Yarn
 yarn-error.log

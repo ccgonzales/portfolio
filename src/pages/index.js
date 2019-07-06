@@ -1,3 +1,65 @@
 import React from "react"
+import Layout from "../components/layout"
+import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
-export default () => <div>Hello world!</div>
+export const ProjectCard = props => {
+  console.log(props.thumbnail)
+  console.log(props.title)
+  return (
+    <li className="projectCard">
+      <Link to={props.linkTo} className="projectCard__link">
+        <Img
+          fluid={props.thumbnail.childImageSharp.fluid}
+          alt={props.title}
+          className="projectCard__image"
+        />
+        {props.title}
+      </Link>
+    </li>
+  )
+}
+
+export default ({ data }) => {
+  return (
+    <Layout>
+      <section>
+        <ul className="projectList">
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <ProjectCard
+              thumbnail={node.frontmatter.thumbnailImage}
+              title={node.frontmatter.title}
+              linkTo={node.fields.slug}
+              key={node.id}
+            />
+          ))}
+        </ul>
+      </section>
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            thumbnailImage {
+              childImageSharp {
+                fluid(maxWidth: 630, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
