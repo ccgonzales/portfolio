@@ -41,7 +41,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(filter: { frontmatter: { featured: { eq: true } } }) {
       edges {
         node {
           id

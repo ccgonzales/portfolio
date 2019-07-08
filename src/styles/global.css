@@ -63,3 +63,7 @@ body {
   font-weight: 600;
   text-decoration: none;
 }
+
+.nav__link--current {
+  border-bottom: 2px blue solid;
+}

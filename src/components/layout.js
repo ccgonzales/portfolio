@@ -27,25 +27,43 @@ const Layout = ({ children }) => {
         <nav>
           <ul className="nav">
             <li className="nav__item">
-              <Link to="/" className="nav__link">
+              <Link
+                to="/"
+                className="nav__link"
+                activeClassName="nav__link--current"
+              >
                 <FontAwesomeIcon icon={faHome} />
                 Home
               </Link>
             </li>
             <li className="nav__item">
-              <Link to="/projects" className="nav__link">
+              <Link
+                to="/projects"
+                className="nav__link"
+                activeClassName="nav__link--current"
+                partiallyActive={true}
+              >
                 <FontAwesomeIcon icon={faCode} />
                 Projects
               </Link>
             </li>
             <li className="nav__item">
-              <Link to="/blog" className="nav__link">
+              <Link
+                to="/blog"
+                className="nav__link"
+                activeClassName="nav__link--current"
+                partiallyActive={true}
+              >
                 <FontAwesomeIcon icon={faMugHot} />
                 Blog
               </Link>
             </li>
             <li className="nav__item">
-              <Link to="/about" className="nav__link">
+              <Link
+                to="/about"
+                className="nav__link"
+                activeClassName="nav__link--current"
+              >
                 <FontAwesomeIcon icon={faUserNinja} />
                 About Me
               </Link>
