@@ -4,8 +4,6 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 export const ProjectCard = props => {
-  console.log(props.thumbnail)
-  console.log(props.title)
   return (
     <li className="projectCard">
       <Link to={props.linkTo} className="projectCard__link">
@@ -24,6 +22,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <section>
+        <h3>Featured Projects</h3>
         <ul className="projectList">
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <ProjectCard
