@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Hero from "../components/Hero"
 
 export const ProjectCard = props => {
   return (
@@ -21,7 +22,12 @@ export const ProjectCard = props => {
 export default ({ data }) => {
   return (
     <Layout>
-      <section>
+      <Hero
+        title={data.site.siteMetadata.title}
+        tagline={data.site.siteMetadata.tagline}
+        headshot={data.file.childImageSharp.fixed}
+      />
+      <section className="featuredProjects">
         <h3>Featured Projects</h3>
         <ul className="projectList">
           {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -58,6 +64,19 @@ export const query = graphql`
             slug
           }
         }
+      }
+    }
+    file(relativePath: { eq: "images/headshot2.jpg" }) {
+      childImageSharp {
+        fixed(width: 300, quality: 90) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        tagline
       }
     }
   }

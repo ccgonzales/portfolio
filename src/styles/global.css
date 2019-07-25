@@ -17,12 +17,15 @@ p {
   font-family: "Lato", Geneva, Verdana, sans-serif;
 }
 
+.featuredProjects {
+  margin: 3rem;
+}
 .projectList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   grid-gap: 3rem;
-  margin: 3rem;
   padding: 0;
+  margin: 0;
 }
 
 .projectCard {
@@ -57,10 +60,15 @@ p {
 }
 
 .hero {
-  display: grid;
+  /* display: grid;
   align-items: center;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 400px 1fr; */
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem;
+  justify-content: center;
 }
 @media screen and (max-width: 600px) {
   .hero {
@@ -70,18 +78,26 @@ p {
   }
 }
 
+.hero {
+  margin: 5rem 3rem 3rem 3rem;
+}
+
 .hero__title {
-  font-size: calc();
+  /* font-size: calc(); */
 }
 
 .hero__headshot {
-  justify-self: center;
+  /* margin: 3rem 1.5rem 3rem 3rem; */
 }
 
 .hero__headshot--rounded {
   border-radius: 70% 70%;
 }
-
+.hero__info {
+  flex-grow: 1;
+  width: 360px;
+  margin-left: 3rem;
+}
 .hero__intro {
   font-size: 1.5rem;
 }
@@ -90,22 +106,30 @@ p {
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid #999999;
-  color: blue;
+  color: white;
   text-decoration: none;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
   font-weight: 500;
   transition: 0.5s 0ms background-color ease-in;
+  background-color: firebrick;
 }
 
 .hero__button:hover {
   background-color: #cccccc;
 }
 
+.main-menu {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background-color: black;
+  top: 0;
+}
+
 .nav {
   display: flex;
   margin: 0;
   padding: 1rem;
-  background-color: black;
 }
 
 .nav__item {
@@ -122,5 +146,9 @@ p {
 }
 
 .nav__link--current {
-  border-bottom: 2px blue solid;
+  border-bottom: 2px firebrick solid;
+}
+
+.content {
+  margin: 3rem;
 }

@@ -44,7 +44,8 @@ const Project = ({ data }) => {
         demo={data.markdownRemark.frontmatter.demo}
         links={data.markdownRemark.frontmatter.links}
       />
-      <section
+      <article
+        className="content"
         dangerouslySetInnerHTML={{
           __html: data.markdownRemark.html,
         }}
